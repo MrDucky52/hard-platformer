@@ -2,7 +2,9 @@
     "name": "Hard Platformer",
     "description": "",
     "dependencies": {
-        "device": "*"
+        "device": "*",
+        "arcade-overworld": "github:riknoll/arcade-overworld#v0.0.5",
+        "arcade-tile-util": "github:microsoft/arcade-tile-util#v1.2.0"
     },
     "files": [
         "main.blocks",

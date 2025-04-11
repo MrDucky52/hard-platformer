@@ -34,10 +34,19 @@ mySprite = sprites.create(img`
 scene.cameraFollowSprite(mySprite)
 jumpsDone = 0
 mySprite.ay = 300
-tiles.setCurrentTilemap(tilemap`foot 1`)
 max_jumps = 5
 mySprite.setPosition(912, 0)
 controller.moveSprite(mySprite, 100, 0)
+overworld.setOverworld16(overworld.createMap16(
+overworld.mapRow16(overworld.tilemap16(tilemap`foot 1`), overworld.tilemap16(tilemap`level3`), overworld.tilemap16(tilemap`level4`)),
+overworld.mapRow16(overworld.tilemap16(tilemap`level8`), overworld.tilemap16(tilemap`level9`), overworld.tilemap16(tilemap`level10`)),
+overworld.mapRow16(overworld.tilemap16(tilemap`level14`), overworld.tilemap16(tilemap`level15`), overworld.tilemap16(tilemap`level16`))
+))
+overworld.setMapTransitionsEnabled(true)
+overworld.loadMap(0, 0)
+overworld.setAnimationType(overworld.AnimationType.Scroll)
+overworld.setMapTransitionsEnabled(true)
+overworld.setPlayerSprite(mySprite)
 game.onUpdate(function () {
     if (mySprite.isHittingTile(CollisionDirection.Bottom)) {
         jumpsDone = 0
